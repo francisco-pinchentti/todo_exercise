@@ -1,0 +1,30 @@
+<section class="container-fluid">
+
+  <header>
+    <h3>My to-do list</h3>
+  </header>
+
+  <ul class="list-group">
+
+    <li *ngFor="let todoItem of todoItems; let i = index;" [id]="'todoItem-' + i" class="list-group-item">
+
+      <i class="material-icons" *ngIf="todoItem.done">check_circle</i>
+      <i class="material-icons" *ngIf="!todoItem.done">schedule</i>
+
+      <span class="todo-item--title">{{ todoItem.title }}</span>
+      <i class="material-icons clickeable" (click)="onDeleteClick(todoItem)">delete</i>
+      <i class="material-icons clickeable" (click)="onEditClick(todoItem)">mode_edit</i>
+
+    </li>
+
+  </ul>
+
+  <footer class="footer">
+
+    <button class="btn btn-primary" type="button" (click)="onCreateClick()">
+      Create new to-do item
+    </button>
+
+  </footer>
+
+</section>

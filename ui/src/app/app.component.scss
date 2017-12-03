@@ -1,0 +1,21 @@
+@import "../variables.scss";
+
+main {
+    padding: 0px 2%;
+    background-color: $colors-bg-secondary;
+}
+
+.nav {
+    
+    height: 64px;
+
+    .nav-item {
+        span {
+            padding: .5rem 1rem;
+        }
+        .nav-link {
+            color: $colors-link;
+            font-weight: 600;
+        }
+    }
+}

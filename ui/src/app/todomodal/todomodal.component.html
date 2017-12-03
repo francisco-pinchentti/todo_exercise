@@ -1,0 +1,71 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ modalTitle }}</h4>
+
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="todoItemForm" novalidate>
+
+    <div class="form-group row">
+      <label for="title" class="col-sm-3 col-form-label">Title</label>
+      <div class="col-sm-9">
+        <input class="form-control" name="title" type="text" formControlName="title">
+      </div>
+    </div>
+
+    <div class="form-group row">
+
+      <label for="ddate" class="col-sm-3 col-form-label">Due Date</label>
+      <div class="col-sm-9">
+
+        <div class="input-group">
+          <input name="ddate" class="form-control" [startDate]="startDate" placeholder="dd-mm-yyyy" formControlName="dueDate" ngbDatepicker
+            #d="ngbDatepicker">
+          <button class="input-group-addon" (click)="d.toggle()" type="button">
+            <i class="material-icons">today</i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="form-group row">
+      <label for="description" class="col-sm-3 col-form-label">Description</label>
+      <div class="col-sm-9">
+        <textarea class="form-control" name="description" type="text" formControlName="description" rows="5"></textarea>
+      </div>
+    </div>
+
+    <div class="form-group row">
+
+      <label for="done" class="col-sm-3 col-form-label"></label>
+
+      <div class="col-sm-9">
+
+        <label class="custom-control custom-checkbox">
+          <input name="done" type="checkbox" class="custom-control-input" formControlName="done">
+          <span class="custom-control-indicator"></span>
+          <span class="custom-control-description">Done</span>
+        </label>
+
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
+<div class="modal-footer">
+
+  <button type="button" class="btn btn-light" (click)="activeModal.close('Close click')">
+    Cancel
+  </button>
+
+  <button type="button" class="btn btn-primary" [disabled]="invalidItem" (click)="onSaveClick()">Save
+  </button>
+
+</div>

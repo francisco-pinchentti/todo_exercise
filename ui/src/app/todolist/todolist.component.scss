@@ -1,0 +1,17 @@
+.list-group-item {
+
+    padding: 1.0rem 1.75rem;
+
+    .todo-item--title {
+        min-width: 50px;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .material-icons,
+    .todo-item--title {
+        margin: 0px 2px 0px 5px;
+    }
+}

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~material-design-icons/iconfont/material-icons.css';
+@import "variables.scss";
+
+html,
+body,
+main {
+    height: 100%;
+}
+
+section {
+    background-color: $colors-bg-main;
+    //background-color: $colors-bg-secondary;
+    padding: 18px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a,
+button,
+.clickeable
+{
+    cursor: pointer;
+}
+
+.footer {
+    margin-top: 24px;
+    width: 100%;
+    display: inline-block;
+}
