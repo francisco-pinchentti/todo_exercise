@@ -1,6 +1,6 @@
 # README.md
 
-A restify + sequelizejs REST API sample/project seed
+A restify + sequelizejs REST API -sample/project seed- for a todo exercise
 
 ## Installation
 
@@ -52,12 +52,12 @@ Modules are mostly an association of models, services, controllers and validatio
 Each module probably will expose many endpoints. Those endpoints and their validators are automatically mapped to the server at startup time following a simple convention:
 
 http method		| restify verb	| controller method name
---------------|---------------|-----------------------
-POST			    | post			    | create
-PUT				    | put			      | update
-DELETE			  | del			      | delete
-GET	(single)	| get			      | get
-GET (many)		| get			      | list
+----------------|---------------|-----------------------
+POST			| post			| create
+PUT				| put			| update
+DELETE			| del			| delete
+GET	(single)	| get			| get
+GET (many)		| get			| list
 
 GET operation can provide a resource id. PUT and DELETE operations ALWAYS use a resource id. In other words no bulk update or delete operations are supported.
 Currently list -or GET many- operations are the only ones supporting "querystring filtering".

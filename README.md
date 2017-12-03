@@ -1,20 +1,39 @@
-LEEME.md
-========
+README.md
+=========
 
-El proyecto está dividido en dos directorios: uno para la api y otro para la ui.
+The project has been divided in two subdirectories, one for the api and another for the ui.
 
-## Instalacion
+## External dependecies
 
-Ambos se instalan ejecutando *npm install* en sus respectivos directorios.
+### API external dependencies
 
-Instalar la API:
+* an sql server (like mysql or mariadb)
+* nodejs v8.9.1
+
+### UI external dependencies
+
+* angular-cli globally installed (added to ui packaje.json)
+* nodejs v8.9.1
+
+## Installation
+
+Both ui and api can be installed by entering *npm install* on their respectives folders.
+The simplest way to install is by running the install script.
+
+### Install Script
+
+An install script called *install.sh* is provided to run the 3 steps noted below.
+
+### Manually
+
+#### API
 
 ```bash
 cd api
 npm install
 ```
 
-Crear un user y una base para la API:
+#### Create a user and a db for the api:
 
 ```sql
 CREATE USER 'mdev'@'localhost' IDENTIFIED BY 'mdev';
@@ -22,46 +41,28 @@ CREATE DATABASE 'mdev_api';
 GRANT ALL ON mdev_api.* TO 'mdev'@'localhost';
 ```
 
-Instalar el cliente web:
+##### custom database setup
+
+By default, the api uses a database called mdev_api along with a user mdev with a password.
+If you want to change either database, username or password this can be done by editing *api/config.json*, sequelize key.
+
+#### UI
 
 ```bash
 cd ui
 npm install
 ```
 
-#### scripts
-
-Se provee un script *install.sh* para hacer estos 3 pasos.
-
-### Ejecutando
+## Running
 
 ```bash
 cd api
 npm start
 ```
-Esto deja corriendo el backend.
+This runs the api.
 
 ```bash
 cd ui
 npm start
 ```
-Esto levanta la web en el puerto 4200.
-
-### Notas de API
-
-Dependencias externas:
-
-* un servidor de sql (como mariaDB)
-* nodejs v8.9.1
-
-#### base de datos
-
-La api utiliza una base llamada mdev_api, con un user y password 'mdev'.
-Para utilizar otros se puede configurar el fichero *api/config.json* el objeto sequelize.
-
-### Notas de UI
-
-Dependencias externas:
-
-* angular-cli instalado globalmente
-* nodejs v8.9.1
+This starts up the ui dev server listening on port 4200.
