@@ -19,12 +19,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { TodoModalComponent } from './todomodal/todomodal.component';
+import { ErrorModalComponent } from './base/ErrorModalComponent';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     TodolistComponent,
+    ErrorModalComponent,
     TodoModalComponent
   ],
   imports: [
@@ -35,6 +37,8 @@ import { TodoModalComponent } from './todomodal/todomodal.component';
     NgbModule.forRoot()
   ],
   entryComponents: [
+    // ngb custom modals needs to be declared here:
+    ErrorModalComponent,
     TodoModalComponent
   ],
   providers: [
@@ -45,7 +49,7 @@ import { TodoModalComponent } from './todomodal/todomodal.component';
     },
     {
       provide: NgbDateParserFormatter,
-      useFactory: () => new NgbDateMomentParserFormatter("DD-MM-YYYY")
+      useFactory: () => new NgbDateMomentParserFormatter('DD-MM-YYYY')
     },
     LoginService,
     TodoService

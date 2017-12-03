@@ -1,10 +1,11 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginService } from './login.service';
 import { Subscription } from 'rxjs/Subscription';
+import { ErrorModalComponent } from '../base/ErrorModalComponent';
 
 @Component({
   selector: 'login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   constructor(
     private router: Router,
+    private modalService: NgbModal,
     private loginService: LoginService
   ) {
     this.loginForm = new FormGroup({
@@ -32,20 +34,25 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   onFormSend(): void {
     const formValues = this.loginForm.value;
-
     this.subscriptions.push(this.loginService
       .login(formValues.email, formValues.password)
       .subscribe((response: any) => {
         localStorage.setItem('token', response.token);
         localStorage.setItem('username', `${response.lastname}, ${response.firstname}`);
         this.router.navigate(['todo']);
-      })
+      }, (err: any) => this.showErrorModal())
     );
 
   }
 
   ngOnDestroy() {
     this.subscriptions.forEach((s: Subscription) => s.unsubscribe());
+  }
+
+  showErrorModal() {
+    const modalRef = this.modalService.open(ErrorModalComponent);
+    modalRef.componentInstance.title = 'Error';
+    modalRef.componentInstance.message = 'Invalid Login';
   }
 
 }
