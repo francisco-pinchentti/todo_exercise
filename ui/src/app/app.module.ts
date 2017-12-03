@@ -13,6 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TokenInterceptor } from './base/AuthInterceptor';
 import { LoginService } from './login/login.service';
 import { TodoService } from './todo.service';
+import { TokenGuard } from './base/TokenGuard';
 
 // application components:
 import { AppComponent } from './app.component';
@@ -52,7 +53,8 @@ import { ErrorModalComponent } from './base/ErrorModalComponent';
       useFactory: () => new NgbDateMomentParserFormatter('DD-MM-YYYY')
     },
     LoginService,
-    TodoService
+    TodoService,
+    TokenGuard
   ],
   bootstrap: [AppComponent]
 })

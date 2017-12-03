@@ -3,11 +3,29 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { TodolistComponent } from './todolist/todolist.component';
+import { TokenGuard } from './base/TokenGuard';
 
 const routes: Routes = [
-  //{ path: 'todo/:id', component: TodoComponent},
-  { path: 'todo', component: TodolistComponent},
-  { path: '', component: LoginComponent}
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'todo',
+    component: TodolistComponent,
+    canActivate: [ TokenGuard ],
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  }
+
 ];
 
 @NgModule({

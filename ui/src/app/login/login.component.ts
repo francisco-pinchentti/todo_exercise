@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, Input } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -12,7 +12,7 @@ import { ErrorModalComponent } from '../base/ErrorModalComponent';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent implements OnDestroy {
 
   private subscriptions: Subscription[] = [];
   loginForm: FormGroup;
@@ -22,14 +22,11 @@ export class LoginComponent implements OnInit, OnDestroy {
     private modalService: NgbModal,
     private loginService: LoginService
   ) {
+    localStorage.clear();
     this.loginForm = new FormGroup({
       email: new FormControl('john@doe.com', Validators.required),
       password: new FormControl('12345', Validators.required)
     });
-  }
-
-  ngOnInit() {
-    localStorage.clear();
   }
 
   onFormSend(): void {

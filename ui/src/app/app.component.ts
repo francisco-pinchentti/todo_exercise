@@ -28,10 +28,14 @@ export class AppComponent {
   }
 
   onLogoutClick(): void {
-    this.loginService.logout(this.token).subscribe((response: any) => {
-      localStorage.clear();
-      this.router.navigate(['']);
-    });
+    this.loginService
+      .logout(this.token)
+      .subscribe(() => this.clearStorageAndNavigateHome(), () => this.clearStorageAndNavigateHome());
+  }
+
+  private clearStorageAndNavigateHome() {
+    localStorage.clear();
+    this.router.navigate(['']);
   }
 
 }

@@ -1,13 +1,9 @@
 <main>
-
     <ul class="nav justify-content-end">
-        
         <li class="nav-item" *ngIf="token">
             <span class="text-right">logged in as {{ username }}</span>
             <a class="nav-link active text-right" (click)="onLogoutClick()">Log Out</a>
         </li>
-
     </ul>
-
     <router-outlet></router-outlet>
 </main>

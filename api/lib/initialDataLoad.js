@@ -21,8 +21,15 @@ module.exports = function (db) {
     db.applicationModels.todo.build({
         title: 'my new task',
         done: false,
-        description: 'iorem ipsum',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         dueDate: '2017-12-31'
+    }).save();
+
+    db.applicationModels.todo.build({
+        title: 'really old task',
+        done: false,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        dueDate: '2014-01-16'
     }).save();
 
 };
