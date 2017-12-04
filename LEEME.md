@@ -65,3 +65,9 @@ cd ui
 npm start
 ```
 Esto levanta la web en el puerto 4200.
+
+### Usuarios y loggin
+
+Puede loguearse con el john@doe.com y el password 12345 sino tambien con jane@doe.com y el pass 54321.
+
+Tambien pueden agregarse nuevos directamente en la tabla de usuarios de la db.
