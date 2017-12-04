@@ -66,3 +66,8 @@ cd ui
 npm start
 ```
 This starts up the ui dev server listening on port 4200.
+
+### Users and logging in
+
+A couple of users have been created: john@doe.com with password 12345 and jane@doe with password 54321.
+New ones can be created on the users table in the database.
