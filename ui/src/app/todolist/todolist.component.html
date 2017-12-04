@@ -3,6 +3,11 @@
   <header>
     <h3>My to-do list</h3>
   </header>
+  
+  <ng-container *ngIf="isRequestPending">
+    <div class="loader-backdrop"></div>  
+    <div class="loader"></div>
+  </ng-container>
 
   <ul class="list-group">
 
